@@ -1,0 +1,12 @@
+# khi app chạy thì nói với config service rằng port nào nó lắng nghe tất cả các request cho việc config
+server:
+  port: 8080
+spring:
+  # bởi vì sử dụng fileSystem cho việc lưu giữ các config => cần nói cho springClourd rằng profiles: native
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file:///config-service/src/main/resources/config/licensingservice
